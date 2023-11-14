@@ -64,9 +64,43 @@ levelkévét kivilevelhevelteve.</p>
 <p>Egy oázisban tevék és struccok mászkálnak. Összesen 24 fejük és 58 lábuk van. Hány teve és hány strucc van az oázisban?</p>
 <img src="./oazis.png" alt="oazis" class="tevekep" id="oazis">
 
-<p>Teve: </p>
-<p>Strucc: </p>
 
+
+
+<p>Teve: <input type="number" id="tevek"></p>
+<p>Strucc: <input type="number" id="struccok"></p>
+<button id="tipp" onclick="ellenorzes()">Tipp</button>
+<script>
+	function ellenorzes() {
+  // A tevék számát kapjuk meg.
+  const tevek = document.getElementById("tevek").value;
+
+  // A struccok számát kapjuk meg.
+  const struccok = document.getElementById("struccok").value;
+
+  // Ellenőrizzük, hogy mindkét mezőt kitöltötték-e.
+  if (tevek === "" || struccok === "") {
+    alert("Hibás adat");
+    return;
+  }
+
+  // Ellenőrizzük, hogy a tevék száma megfelelő-e.
+  if (tevek < 5) {
+    alert("Ettől több teve van!");
+    return;
+  }
+
+  // Ellenőrizzük, hogy a struccok száma megfelelő-e.
+  if (tevek > 5) {
+    alert("Ettől kevesebb teve van!");
+    return;
+  }
+
+  // Ha mindent rendben találtunk, akkor megjelenítjük a helyes megoldást.
+  document.getElementById("megoldas").innerHTML = "Helyes! 5 teve és 19 strucc";
+}
+
+</script>
 </div>
 </body>
 </html>
